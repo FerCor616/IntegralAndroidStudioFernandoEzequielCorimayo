@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+dependencies {
+    // Dependency on a remote binary
+    implementation("com.example.android:app-magic:12.3")
+}
+ext {
+    activityKtxVersion = '1.6.1'
+    appcompatVersion = '1.6.1'
+    lifecycleViewmodelKtxVersion = '2.6.1'
+    lifecycleLivedataKtxVersion = '2.5.1'
+    junitVersion = '4.13.2'
+    junitVersion1 = '1.1.5'
+    constraintlayoutVersion = '2.1.4'
+    activityKtxVersion1 = activityKtxVersion
+    coreKtxVersion = '1.10.1'
+    espressoCoreVersion = '3.5.1'
+    fragmentKtxVersion = '1.5.5'
+    junitVersion2 = junitVersion
+    junitVersion3 = junitVersion
+    lifecycleLivedataKtxVersion1 = lifecycleLivedataKtxVersion
+    lifecycleViewmodelKtxVersion1 = '2.6.1'
+}
+
+android {
+    namespace 'com.curso.android.app.practica.proyecto.integrador'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.curso.android.app.practica.proyecto.integrador"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures{
+        viewBinding=true
+    }
+
+}
+
+dependencies {
+    def fragment_version = "1.5.5"
+    def activity_version = "1.6.1"
+    def lifecycle_version = "2.5.1"
+    def arch_version = "2.1.0"
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
+    implementation "androidx.activity:activity-ktx:$activity_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+
+
+
+    implementation "androidx.core:core-ktx:$coreKtxVersion"
+    implementation "androidx.appcompat:appcompat:$appcompatVersion"
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayoutVersion"
+    testImplementation 'junit:junit:4.13.2'
+
+    // Adds a remote binary dependency only for the instrumented test APK.
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+}
